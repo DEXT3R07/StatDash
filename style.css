@@ -18,12 +18,15 @@ h1 { font-size: 40px; }
   padding: 20px;
   margin-top: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  width: 400px;
+  margin-left: 0%;
+  align-items: center;
 }
 
 .row {
   display: flex;
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px ;
 }
 
 input {
@@ -36,7 +39,7 @@ input {
 }
 
 button {
-  width: 100%;
+  width: 300px;
   background: linear-gradient(135deg, #6C8CFF, #FF66CC);
   border: none;
   padding: 12px;
@@ -44,6 +47,7 @@ button {
   color: white;
   font-weight: bold;
   margin-top: 10px;
+  margin-right: 0;
 }
 
 .summary div {
