@@ -1,59 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>StatDash</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StatDash - Instant Chart Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1>StatDash Studio</h1>
+            <p>Enter your data below to generate instant visualizations</p>
+        </header>
 
-<h1>StatDash</h1>
+        <main class="dashboard">
+            <!-- Input Section -->
+            <section class="input-panel">
+                <div class="panel-header">
+                    <h2>Data Input</h2>
+                </div>
 
-<div class="container">
+                <div class="tab-content active">
+                    <div class="frequency-table">
+                        <div class="table-header">
+                            <span>Category/Item</span>
+                            <span>Value/Frequency</span>
+                        </div>
+                        <div id="rows">
+                            <div class="row">
+                                <input class="name" placeholder="e.g., Rent">
+                                <input class="value" type="number" placeholder="e.g., 1200">
+                            </div>
+                            <div class="row">
+                                <input class="name" placeholder="e.g., Food">
+                                <input class="value" type="number" placeholder="e.g., 500">
+                            </div>
+                            <div class="row">
+                                <input class="name" placeholder="e.g., Transport">
+                                <input class="value" type="number" placeholder="e.g., 300">
+                            </div>
+                        </div>
+                        <button class="add-row-btn" onclick="addRow()">+ Add Row</button>
+                    </div>
+                    <button class="generate-btn" onclick="generateCharts()">Generate Charts</button>
+                </div>
+            </section>
 
-  <div class="card" id="rows">
-    <div class="row">
-      <input class="name" placeholder="e.g Rent">
-      <input class="value" type="number" placeholder="200">
+            <!-- Charts Section -->
+            <section class="charts-panel">
+                <div class="panel-header">
+                    <h2>Visualizations</h2>
+                </div>
+                
+                <div class="charts-grid">
+                    <!-- Bar Chart -->
+                    <div class="chart-card">
+                        <h3>Bar Chart</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="bar"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart -->
+                    <div class="chart-card">
+                        <h3>Pie Chart</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="pie"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Stats -->
+                <div class="stats-card">
+                    <h3>Statistical Summary</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Total</span>
+                            <span class="stat-value" id="total">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Average</span>
+                            <span class="stat-value" id="avg">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Highest</span>
+                            <span class="stat-value" id="high">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Lowest</span>
+                            <span class="stat-value" id="low">-</span>
+                        </div>
+                        <div class="stat-item wide">
+                            <span class="stat-label">Top Category</span>
+                            <span class="stat-value" id="top">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-    <div class="row">
-      <input class="name" placeholder="e.g Food">
-      <input class="value" type="number" placeholder="300">
-    </div>
-    <div class="row">
-      <input class="name" placeholder="e.g Transport">
-      <input class="value" type="number" placeholder="600">
-    </div>
-  </div>
 
-  <button onclick="addRow()">+ Add Row</button>
-  <button onclick="generateCharts()">Generate Charts</button>
-
-  <div class="card">
-    <canvas id="bar"></canvas>
-  </div>
-
-  <div class="card">
-    <canvas id="pie"></canvas>
-  </div>
-
-  <div class="card summary">
-    <div>Total: <span id="total"></span></div>
-    <div>Average: <span id="avg"></span></div>
-    <div>Highest: <span id="high"></span></div>
-    <div>Lowest: <span id="low"></span></div>
-    <div>Top: <span id="top"></span></div>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
